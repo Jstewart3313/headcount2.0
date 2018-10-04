@@ -8,7 +8,7 @@ const CardContainer = ( {data} ) => {
     <Card {...data[point]} />
   )
   return (
-        <div>
+        <div className='card-container'>
          { exp }
         </div>
   )
