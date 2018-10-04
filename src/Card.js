@@ -5,7 +5,8 @@ import React, { Component } from 'react'
 const Card = ({location, stats}) => {
     const years = Object.keys(stats)
     const schoolData = years.map( year => {
-      return <p className='data'>{year} : {stats[year]}</p>
+      return <p className={(stats[year] > .5) ? 'data-above' : 'data-below'}>
+        {year} : {stats[year]}</p>
     })
     return (
       <div className='card'>
