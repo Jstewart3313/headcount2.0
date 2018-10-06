@@ -4,7 +4,10 @@ import React, { Component } from 'react'
 const CompareContainer = (props) => {
   let compareLocations = [];
 
-  return null
+  return (
+    <div>
+    </div>
+  )
 }
 
 export default CompareContainer

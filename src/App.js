@@ -4,6 +4,7 @@ import DistrictRepository from './helper'
 import KinderData from './data/kindergartners_in_full_day_program.js'
 import CardContainer from './CardContainer'
 import SearchCardForm from './SearchCardForm'
+import CompareContainer from './CompareContainer'
 
 
 
@@ -30,8 +31,8 @@ class App extends Component {
   }
 
   compareCards = () => {
-    
 
+    return null
   }
 
 
@@ -40,12 +41,12 @@ class App extends Component {
 
 
   render() {
-    const { data } = this.state
+    const { data , compareCards } = this.state
     return (
       <div>
         <SearchCardForm searchCard={this.searchCard} />
         <CardContainer data={data} />
-        {/* <CompareConatiner compareCards={this.compareCards} />*/}
+        <CompareContainer compareCards={compareCards} />
       </div>
     );
   }

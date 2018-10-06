@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class SearchCardForm extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class SearchCardForm extends Component {
     return(
       <div>
       <form 
-        classname='search-form'
+        className='search-form'
         onSubmit={this.handleSubmit}
       >
         <input 
@@ -37,17 +38,9 @@ class SearchCardForm extends Component {
       </div>
     )
   }
-
-
-
-
-
-
-
-
-
-
-
 }
 
+  SearchCardForm.propTypes = {
+    searchCard: PropTypes.func
+  }
 export default SearchCardForm
