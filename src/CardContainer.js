@@ -3,11 +3,14 @@ import Card from './Card'
 import PropTypes from 'prop-types'
 
 
-const CardContainer = ( {data} ) => {
-  const dataKeys = Object.keys(data)
+const CardContainer = ( {data, compareCards} ) => {
+  
+  let dataKeys = Object.keys(data)
+  
   let counter = 0
+  
   const exp = dataKeys.map( point =>
-    <Card {...data[point]} className={'card' + [point]} key={counter++} />
+    <Card {...data[point]} className={'card' + [point]} key={counter++} compareCards={ compareCards } />
   )
   return (
         <div className='card-container'>
@@ -19,7 +22,8 @@ const CardContainer = ( {data} ) => {
 
 
 CardContainer.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.array,
+  compareCards: PropTypes.func
 }
 
 export default CardContainer
