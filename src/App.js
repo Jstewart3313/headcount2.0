@@ -4,48 +4,54 @@ import DistrictRepository from './helper'
 import KinderData from './data/kindergartners_in_full_day_program.js'
 import CardContainer from './CardContainer'
 import SearchCardForm from './SearchCardForm'
-
-
+import CompareContainer from './CompareContainer'
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       compare: [],
-      data: {},
+      data: [],
     }
   }
 
-
   componentDidMount() {
     const district = new DistrictRepository(KinderData);
-    const stats = district.stats
-    this.setState({data: stats })
+    const districtStats = district.findAllMatches();
+    this.setState({data: districtStats})
   }
 
   searchCard = (search) => {
     const district = new DistrictRepository(KinderData);
     const filteredstats = district.findAllMatches(search)
-    this.setState({data: filteredstats})
+    this.setState( {data: filteredstats})
   }
 
-  compareCards = () => {
-    
+  compareCards = (card1) => {
+      if( this.state.data[card1]) {
+        this.state.compare.push(this.state.data[card1])
+      } 
+      else {
+        let comparedSchool = this.state.data.find( school => {
+           return school.location === card1 
+        })
+        this.state.compare.push(comparedSchool)
+      }
+      if ( this.state.compare.length > 2) {
+        this.state.compare.shift()
+      }
+      this.setState({compare: this.state.compare})
+
 
   }
-
-
-
-
-
 
   render() {
-    const { data } = this.state
+    const { data , compare } = this.state
     return (
       <div>
         <SearchCardForm searchCard={this.searchCard} />
-        <CardContainer data={data} />
-        {/* <CompareConatiner compareCards={this.compareCards} />*/}
+        <CardContainer data={ data } compareCards={ this.compareCards} />
+        <CompareContainer compareCards={this.compareCards} compare={ compare } />
       </div>
     );
   }
