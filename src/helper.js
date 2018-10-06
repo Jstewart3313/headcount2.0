@@ -10,7 +10,7 @@ export default class DistrictRepository {
 
   makeStats = () => {
     let district = this.kinderData.reduce((Unit, School) => {
-      if ( School.Data === 'N/A') {
+      if (School.Data === 'N/A') {
         School.Data = 0;
       }
       if (!Unit[School.Location.toUpperCase()]) {
@@ -18,15 +18,42 @@ export default class DistrictRepository {
           stats: {[School.TimeFrame]: Math.round(School.Data * 1000) / 1000},
           location: School.Location.toUpperCase()
         }
-      } else {
-      Unit[School.Location.toUpperCase()].stats={
+      }
+      if (Unit[School.Location.toUpperCase()]) {
+        Unit[School.Location.toUpperCase()].stats={
         ...Unit[School.Location.toUpperCase()].stats,
         [School.TimeFrame] : Math.round(School.Data * 1000) / 1000}
-    } 
+      }
 
       return Unit
     }, {})
+    
     return district
+  }
+
+
+
+  findAverage = (location) => {
+    const values = Object.values(this.stats[location].stats)
+    const finalAvg = values.reduce( (avg, data) => {
+      avg += data;
+
+      return avg
+    }, 0) / 11
+    return Math.round(finalAvg * 1000) / 1000
+  }
+
+
+  compareDistrictAverages = (avg1, avg2) => {
+    avg1 = avg1.toUpperCase();
+    avg2 = avg2.toUpperCase();
+     const average1 = this.findAverage(avg1);
+     const average2 = this.findAverage(avg2);
+     const roundedCompared = Math.round(average1 / average2 * 1000) / 1000
+
+
+
+    return { [avg1]: average1, [avg2]: average2, "compared": roundedCompared }
   }
 
   findByName = (name) => {

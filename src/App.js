@@ -11,6 +11,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      compare: [],
       data: {},
     }
   }
@@ -28,6 +29,13 @@ class App extends Component {
     this.setState({data: filteredstats})
   }
 
+  compareCards = () => {
+    
+
+  }
+
+
+
 
 
 
@@ -37,9 +45,28 @@ class App extends Component {
       <div>
         <SearchCardForm searchCard={this.searchCard} />
         <CardContainer data={data} />
+        {/* <CompareConatiner compareCards={this.compareCards} />*/}
       </div>
     );
   }
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+/*
+  create compareCards method...
+  set a property in state of compare to empty array
+  pass the comparecards method down to card for access
+  then pass state.compare to compare container
+
+  conditional render for compare method...
+
+*/
