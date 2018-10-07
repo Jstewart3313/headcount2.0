@@ -6,12 +6,21 @@ import Card from '../../Card'
 describe( 'Card', () => {
 
   it('Should match the snapshot', () => {
-    const mockLocation = 'Colorado';
-    const mockStat = {
-      '2017': .0872
-    }
+    const mockStat = [{
+      location: 'COLORADO',
+      stats: {
+        '2014': 1
+        }
+      },
+      {
+      location: 'Turing',
+      stats: {
+        '2014': 1
+        }
+      }
+  ]
 
-    const wrapper = shallow(<Card location={mockLocation} stats={mockStat} />)
+    const wrapper = shallow(<Card {...mockStat[0]} />)
   })
 
   

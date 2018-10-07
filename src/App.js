@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       compare: [],
       data: [],
+      averageCard: {}
     }
   }
 
@@ -28,30 +29,36 @@ class App extends Component {
   }
 
   compareCards = (card1) => {
-      if( this.state.data[card1]) {
-        this.state.compare.push(this.state.data[card1])
-      } 
-      else {
-        let comparedSchool = this.state.data.find( school => {
-           return school.location === card1 
-        })
-        this.state.compare.push(comparedSchool)
-      }
-      if ( this.state.compare.length > 2) {
-        this.state.compare.shift()
-      }
-      this.setState({compare: this.state.compare})
-
+    const district = new DistrictRepository(KinderData);
+    let theAverage = {}
+    if( this.state.data[card1]) {
+      this.state.compare.push(this.state.data[card1])
+    } 
+    else {
+      let comparedSchool = this.state.data.find( school => {
+         return school.location === card1 
+      })
+      this.state.compare.push(comparedSchool)
+    }
+    if ( this.state.compare.length > 2) {
+      this.state.compare.shift()
+    }
+    if ( this.state.compare.length === 2) {
+      theAverage = district.compareDistrictAverages(this.state.compare[0].location, this.state.compare[1].location)
+    }
+    this.setState({compare: this.state.compare,
+                    averageCard: theAverage
+                  })
 
   }
 
   render() {
-    const { data , compare } = this.state
+    const { data , compare, averageCard } = this.state
     return (
       <div>
         <SearchCardForm searchCard={this.searchCard} />
+        <CompareContainer compareCards={this.compareCards} compare={ compare } averageCard={ averageCard }  />
         <CardContainer data={ data } compareCards={ this.compareCards} />
-        <CompareContainer compareCards={this.compareCards} compare={ compare } />
       </div>
     );
   }

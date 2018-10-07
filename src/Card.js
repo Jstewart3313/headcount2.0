@@ -7,12 +7,8 @@ const Card = ({stats, location, compareCards}) => {
 
     let years = Object.keys(stats);
     
-
-
     let cardCounter = 0;
     
-
-
     const schoolData = years.map( year => {
       return <p  className={(stats[year] > .5) ? 'data-above' : 'data-below'}
       name={location} key={cardCounter++} >
@@ -21,13 +17,9 @@ const Card = ({stats, location, compareCards}) => {
 
 
     this.handleClick = (e) => {
-      let name  = e.target.getAttribute('name')
+      let name = e.target.getAttribute('name')
       compareCards(name)
 
-    }
-
-    this.id = () => {
-      return Date.now()
     }
 
     return (
