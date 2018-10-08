@@ -1,6 +1,8 @@
 # HeadCount 2.0
 
 HeadCount 2.0 is a project designed to challenge my skills at manipulating data and creating small, reusable React components.
+- Can filter cards by search
+- Can compare averages between two schools
 
 ![HeadCount](HeadcountSS.png)
 
