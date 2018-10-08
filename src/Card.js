@@ -39,7 +39,7 @@ const Card = ({stats, location, compareCards}) => {
 Card.propTypes = {
   stats: PropTypes.object.isRequired,
   location: PropTypes.string.isRequired,
-  compareCards: PropTypes.isfunc
+  compareCards: PropTypes.func
 };
 
 export default Card;

@@ -5,6 +5,7 @@ import KinderData from './data/kindergartners_in_full_day_program.js';
 import CardContainer from './CardContainer';
 import SearchCardForm from './SearchCardForm';
 import CompareContainer from './CompareContainer';
+import Header from './Header';
 
 class App extends Component {
   constructor(props) {
@@ -57,7 +58,8 @@ class App extends Component {
   render() {
     const { data, compare, averageCard } = this.state;
     return (
-      <div>
+      <div className='app'>
+        <Header />
         <SearchCardForm searchCard={this.searchCard} />
         <CompareContainer 
           compareCards={this.compareCards} 
