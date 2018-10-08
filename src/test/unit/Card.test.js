@@ -21,6 +21,7 @@ describe( 'Card', () => {
   ]
 
     const wrapper = shallow(<Card {...mockStat[0]} />)
+    expect(wrapper).toMatchSnapshot()
   })
 
   

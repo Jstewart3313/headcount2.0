@@ -10,7 +10,6 @@ class SearchCardForm extends Component {
   }
 
   trackChange = (event) => {
-    event.preventDefault();
     const { value } = event.target;
     this.setState({location: value})
     this.props.searchCard(this.state.location)
@@ -29,6 +28,7 @@ class SearchCardForm extends Component {
         onSubmit={this.handleSubmit}
       >
         <input 
+          className='search-input'
           value={this.state.location}
           placeholder='Search'
           name= 'location'
