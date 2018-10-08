@@ -80,12 +80,3 @@ export default App;
 
 
 
-/*
-  create compareCards method...
-  set a property in state of compare to empty array
-  pass the comparecards method down to card for access
-  then pass state.compare to compare container
-
-  conditional render for compare method...
-
-*/

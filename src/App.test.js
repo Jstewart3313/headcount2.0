@@ -58,4 +58,41 @@ describe('App', () => {
     expect(wrapper.state('data')).toEqual(expectedStat)
     expect(wrapper.state('data').length).toEqual(2)
   })
+
+  it('CompareCards adds an Comparison to state', () => {
+    const initialState = []
+    const mockCompare = 'COLORADO'
+    const expected = [{
+      location: 'COLORADO',
+      stats: {
+        "2004": 0.24,
+        "2005": 0.278,
+        "2006": 0.337,
+        "2007": 0.395,
+        "2008": 0.536,
+        "2009": 0.598,
+        "2010": 0.64,
+        "2011": 0.672,
+        "2012": 0.695,
+        "2013": 0.703,
+        "2014": 0.741,
+        }
+      }]
+
+    wrapper.setState({ ideas: initialState })
+    wrapper.instance().compareCards(mockCompare)
+
+    expect(wrapper.state('compare')).toEqual(expected)
+    expect(wrapper.state('compare').length).toEqual(1)
+  })
+
+
+
 })
+
+
+
+
+
+
+
