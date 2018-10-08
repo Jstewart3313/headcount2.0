@@ -19,7 +19,7 @@ const CompareCard = ({ averageCard } ) => {
 };
 
 CompareCard.propTypes = {
-  averageCard: PropTypes.array
+  averageCard: PropTypes.object
 };
 
 
