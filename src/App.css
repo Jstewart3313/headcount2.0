@@ -1,3 +1,12 @@
+.Compare-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+}
+
+
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -38,7 +47,7 @@
 }
 
 .data-below {
-  color: red;
+  color: tomato;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -5,12 +5,14 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CardContainer
     data={
-        Object {
-            "location": "colorado",
-            "stats": Object {
-              "2017": 0.017,
+        Array [
+            Object {
+              "location": "colorado",
+              "stats": Object {
+                "2017": 0.017,
+              },
             },
-          }
+          ]
     }
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -28,17 +30,14 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Card
-          0="c"
-          1="o"
-          2="l"
-          3="o"
-          4="r"
-          5="a"
-          6="d"
-          7="o"
-/>,
-        <Card
-          2017={0.017}
+          className="card0"
+          compareCards={undefined}
+          location="colorado"
+          stats={
+                    Object {
+                              "2017": 0.017,
+                            }
+          }
 />,
       ],
       "className": "card-container",
@@ -47,28 +46,15 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": undefined,
+        "key": "0",
         "nodeType": "function",
         "props": Object {
-          "0": "c",
-          "1": "o",
-          "2": "l",
-          "3": "o",
-          "4": "r",
-          "5": "a",
-          "6": "d",
-          "7": "o",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "2017": 0.017,
+          "className": "card0",
+          "compareCards": undefined,
+          "location": "colorado",
+          "stats": Object {
+            "2017": 0.017,
+          },
         },
         "ref": null,
         "rendered": null,
@@ -85,17 +71,14 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Card
-            0="c"
-            1="o"
-            2="l"
-            3="o"
-            4="r"
-            5="a"
-            6="d"
-            7="o"
-/>,
-          <Card
-            2017={0.017}
+            className="card0"
+            compareCards={undefined}
+            location="colorado"
+            stats={
+                        Object {
+                                    "2017": 0.017,
+                                  }
+            }
 />,
         ],
         "className": "card-container",
@@ -104,28 +87,15 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": undefined,
+          "key": "0",
           "nodeType": "function",
           "props": Object {
-            "0": "c",
-            "1": "o",
-            "2": "l",
-            "3": "o",
-            "4": "r",
-            "5": "a",
-            "6": "d",
-            "7": "o",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "2017": 0.017,
+            "className": "card0",
+            "compareCards": undefined,
+            "location": "colorado",
+            "stats": Object {
+              "2017": 0.017,
+            },
           },
           "ref": null,
           "rendered": null,
